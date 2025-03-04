@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { socket } from "../Socket";
+import { trackingDeviceLocaton } from "../utils/data";
 
 const DeviceLocation: React.FC = () => {
   const updateLocation = (latitude:Number,longitude:Number) => {
@@ -27,11 +28,11 @@ const DeviceLocation: React.FC = () => {
           (error) => console.error("Location Error:", error),
           { enableHighAccuracy: true }
         );
-      }, 30000);
+      }, 300000);
     }
   }, []);
 
-  return <p>Tracking Device Location...</p>;
+  return <p>{trackingDeviceLocaton}</p>;
 };
 
 export default DeviceLocation;

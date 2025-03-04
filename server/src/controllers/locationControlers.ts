@@ -19,7 +19,14 @@ try{
   
 }
 }
-
+export const clearLocations = async (req: Request, res: Response) => {
+  try {
+    const result = await Location.deleteMany({});
+    res.json({ message: `${result.deletedCount} locations deleted` });
+  } catch (error) {
+    res.status(500).json({ error: "Error clearing locations" });
+  }
+};
   
 
 
